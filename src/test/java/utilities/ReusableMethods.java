@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ReusableMethods {
 
-    public static void waitSleep(Integer sec){
+    public static void waitSleep(int sec){
         sleep(sec*1000);
     }
 }

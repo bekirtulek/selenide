@@ -15,7 +15,7 @@ public class CommonStepDefinitions {
     }
 
     @And("kullanici {int} saniye bekler")
-    public void kullaniciSaniyeBekler(Integer time) {
+    public void kullaniciSaniyeBekler(int time) {
         // selenide default olarak 4 sn bekler
         // 4 saniyeden fazla beklemek icin sleep methodu kullanilir
         // sleep fonksiyonu mili saniye kabul eder. saniyeye cevirmek icin *1000 yapilir
