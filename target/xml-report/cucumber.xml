@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="28.561" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="locators" name="TC_01 locators" time="27.907">
+<system-out><![CDATA[
+Given kullanici "https://testcenter.techproeducation.com/index.php?page=form-authentication" adresine gider.passed
+And kullanici 3 saniye bekler...............................................passed
+And kullanici username girer................................................passed
+And kullanici password girer................................................passed
+When kullanici submit butonuna tiklar.......................................passed
+Then kullanici login oldugunu gorur.........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
