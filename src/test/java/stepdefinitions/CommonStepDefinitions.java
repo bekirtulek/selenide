@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 
 
@@ -14,6 +15,7 @@ public class CommonStepDefinitions {
     public void kullanici_adresine_gider(String url) {
 
         open(url);
+        WebDriverRunner.getWebDriver().manage().window().maximize();
 
     }
 

@@ -5,8 +5,8 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import pages.TestCenterPage;
 
-import static com.codeborne.selenide.Condition.checked;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static utilities.ReusableMethods.*;
 
 
@@ -77,13 +77,20 @@ public class TestCenterStepdefs {
 // ALERT STEP DEFS
     @And("kullanici alert prompt butonuna tiklar")
     public void kullaniciAlertPromptButonunaTiklar() {
+        testCenterPage.promptButton.click();
+        waitSleep(2);
     }
 
     @And("kullanici alerte {string} yazar ve OKe tiklar")
-    public void kullaniciAlerteYazarVeOKeTiklar(String arg0) {
+    public void kullaniciAlerteYazarVeOKeTiklar(String text) {
+        switchTo().alert().sendKeys(text);
+        waitSleep(2);
+        switchTo().alert().accept();
+        waitSleep(2);
     }
 
     @Then("kullanici sonucun {string} icerdigini test eder")
-    public void kullaniciSonucunIcerdiginiTestEder(String arg0) {
+    public void kullaniciSonucunIcerdiginiTestEder(String message) {
+        testCenterPage.sonuc.shouldHave(text(message));
     }
 }

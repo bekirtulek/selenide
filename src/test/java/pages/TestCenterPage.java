@@ -11,6 +11,8 @@ public class TestCenterPage {
     public SelenideElement passwordBox=$("#exampleInputPassword1");
     public SelenideElement submitButton=$(By.xpath("//button[@type='submit']"));
     public SelenideElement loginMessage=$(By.xpath("//*[contains(text(),'You logged into a secure area!')]"));
+
+    //  CHECKBOX AND RADIO BUTTON ELEMENTLERI
     public SelenideElement checkbox1=$("#box1");
     public SelenideElement checkbox2=$("#box2");
     public SelenideElement redRadioButton=$("#red");
@@ -22,8 +24,10 @@ public class TestCenterPage {
     public SelenideElement year=$("#year");
     public SelenideElement month=$("#month");
     public SelenideElement day=$("#day");
+
     //  ALERT ELEMENTERI
     public SelenideElement promptButton=$(By.xpath("//button[normalize-space()='Click for JS Prompt']"));
+    public SelenideElement sonuc=$("#result");
 
 
 
