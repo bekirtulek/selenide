@@ -16,5 +16,17 @@ public class TestCenterPage {
     public SelenideElement redRadioButton=$("#red");
     public SelenideElement footballRadioButton=$("#football");
 
+    //  DROPDOWN MENU ELEMENTLERI
+
+    public SelenideElement firstDropdown=$("#dropdown");
+    public SelenideElement year=$("#year");
+    public SelenideElement month=$("#month");
+    public SelenideElement day=$("#day");
+    //  ALERT ELEMENTERI
+    public SelenideElement promptButton=$(By.xpath("//button[normalize-space()='Click for JS Prompt']"));
+
+
+
+
 
 }

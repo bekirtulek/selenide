@@ -12,7 +12,9 @@ public class CommonStepDefinitions {
 
     @Given("kullanici {string} adresine gider")
     public void kullanici_adresine_gider(String url) {
-       open(url);
+
+        open(url);
+
     }
 
     @And("kullanici {int} saniye bekler")

@@ -7,6 +7,7 @@ import pages.TestCenterPage;
 
 import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.visible;
+import static utilities.ReusableMethods.*;
 
 
 public class TestCenterStepdefs {
@@ -60,5 +61,29 @@ public class TestCenterStepdefs {
         }
 
 
+    }
+// DROPDOWN MENU
+    @And("kullanici yil olarak {int}, ay olarak {string} gun olarak {int} secer")
+    public void kullaniciYilOlarakAyOlarakGunOlarakSecer(int year, String mount, int day) {
+        testCenterPage.year.selectOption(String.valueOf(year));
+        waitSleep(2);
+        testCenterPage.month.selectOption(mount);
+        waitSleep(2);
+        testCenterPage.day.selectOption(String.valueOf(day));
+        waitSleep(2);
+
+
+    }
+// ALERT STEP DEFS
+    @And("kullanici alert prompt butonuna tiklar")
+    public void kullaniciAlertPromptButonunaTiklar() {
+    }
+
+    @And("kullanici alerte {string} yazar ve OKe tiklar")
+    public void kullaniciAlerteYazarVeOKeTiklar(String arg0) {
+    }
+
+    @Then("kullanici sonucun {string} icerdigini test eder")
+    public void kullaniciSonucunIcerdiginiTestEder(String arg0) {
     }
 }
