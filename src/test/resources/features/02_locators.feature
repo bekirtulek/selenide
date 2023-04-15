@@ -10,4 +10,5 @@
       When  kullanici submit butonuna tiklar
       And   kullanici 2 saniye bekler
       Then  kullanici login oldugunu gorur
-
+      And   kullanici 2 saniye bekler
+      Then  kullanici sayfayi acik tutar

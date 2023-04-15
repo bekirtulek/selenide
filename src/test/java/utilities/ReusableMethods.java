@@ -7,4 +7,6 @@ public class ReusableMethods {
     public static void waitSleep(int sec){
         sleep(sec*1000);
     }
+
+
 }

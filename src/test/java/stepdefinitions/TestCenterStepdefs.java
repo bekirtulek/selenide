@@ -1,9 +1,11 @@
 package stepdefinitions;
 
+import com.codeborne.selenide.Condition;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import pages.TestCenterPage;
 
+import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.visible;
 
 
@@ -26,10 +28,37 @@ public class TestCenterStepdefs {
 
     @Then("kullanici login oldugunu gorur")
     public void kullaniciLoginOldugunuGorur() {
-       // Assert.assertTrue(testCenterPage.loginMessage.isDisplayed());
+       // Assert.assertTrue(testCenterPage.loginMessage.isDisplayed()); JUnit
         //testCenterPage.loginMessage.shouldBe(visible);
         testCenterPage.loginMessage.shouldBe(visible);//selenide assertion
         //fail ederse ekran goruntusu otomatik alinir ve build icine kayder
+
+    }
+
+    @And("kullanici {string} secili degilse secer")
+    public void kullaniciSeciliDegilseSecer(String text) {
+        if (text.equals("Checkbox 1")&&!testCenterPage.checkbox1.isSelected()){
+            testCenterPage.checkbox1.click();
+            //Assert.assertTrue(testCenterPage.checkbox1.isSelected());
+            //testCenterPage.checkbox1.shouldBe(Condition.checked);
+            testCenterPage.checkbox1.shouldBe(checked);
+        }
+        if (text.equals("Checkbox 2")&&!testCenterPage.checkbox2.isSelected()) {
+            testCenterPage.checkbox2.shouldNotBe(checked);// secili olmadigini test et
+            testCenterPage.checkbox2.click();
+            testCenterPage.checkbox2.shouldBe(checked);
+        }
+        if (text.equals("Red")&&!testCenterPage.redRadioButton.isSelected()){
+            testCenterPage.redRadioButton.shouldNotBe(checked);
+            testCenterPage.redRadioButton.click();
+            testCenterPage.redRadioButton.shouldBe(checked);
+        }
+        if (text.equals("Football")&&!testCenterPage.redRadioButton.isSelected()){
+            testCenterPage.footballRadioButton.shouldNotBe(checked);
+            testCenterPage.footballRadioButton.click();
+            testCenterPage.footballRadioButton.shouldBe(checked);
+        }
+
 
     }
 }
