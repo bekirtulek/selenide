@@ -34,6 +34,10 @@ public class TestCenterPage {
     public SelenideElement techProLink=$(By.xpath("//a[@type='button']"));
     public SelenideElement reklamClose=$(By.xpath("//i[@class='eicon-close']"));
 
+    //ACTIONS ELEMENTLERI
+    public SelenideElement kaynak =$("#draggable");
+    public SelenideElement hedef=$("#droppable");
+
 
 
 

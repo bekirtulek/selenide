@@ -6,4 +6,4 @@ Feature: iframe ve windows
     And   kullanici Back to TechProEducation.com linkine tiklar
     And   kullanici switch to window2 yapar
     And   kullanici cikan reklami kapatir
-    And   kullanici sayfayi acik tutar
+    #And   kullanici sayfayi acik tutar

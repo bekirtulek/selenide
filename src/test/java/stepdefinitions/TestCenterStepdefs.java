@@ -1,14 +1,13 @@
 package stepdefinitions;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
+
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import pages.TestCenterPage;
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static utilities.ReusableMethods.*;
@@ -103,7 +102,7 @@ public class TestCenterStepdefs {
     @And("kullanici switch to ile iframe{int} icine girer")
     public void kullaniciSwitchToIleIframeIcineGirer(int index) {
         switchTo().frame(index-1);
-        waitSleep(3);
+        waitSleep(2);
     }
 
     @And("kullanici Back to TechProEducation.com linkine tiklar")
@@ -124,5 +123,32 @@ public class TestCenterStepdefs {
     @And("kullanici cikan reklami kapatir")
     public void kullaniciCikanReklamiKapatir() {
         testCenterPage.reklamClose.click();
+        waitSleep(3);
+    }
+
+    @And("kullanici source elementi target elementine surukler")
+    public void kullaniciSourceElementiTargetElementineSurukler() {
+
+        //1. DRAG AND DROP
+          actions()
+                  .dragAndDrop(testCenterPage.kaynak,testCenterPage.hedef)
+                  .build()    // baglantiyi olusturur. optional
+                  .perform(); // action da verilen komutlari gerceklestirir ZORUNLU
+    }
+
+    //2. DRAG AND DROPBY
+    @And("kullanici source elementini x {int} y {int} koordinatlarina surukler")
+    public void kullaniciSourceElementiniXYKoordinatlarinaSurukler(int x, int y) {
+        actions()
+                .dragAndDropBy(testCenterPage.kaynak,x,y)
+                .build()
+                .perform();
+    }
+
+    @And("kullanici source elementini x {int} y {int} koordinatlarina suruklendigini dogrular")
+    public void kullaniciSourceElementiniXYKoordinatlarinaSuruklendiginiDogrular(int x, int y) {
+        String styleValue=testCenterPage.kaynak.getAttribute("style");
+        System.out.println("styleValue = " + styleValue);
+        Assert.assertTrue(styleValue.contains(String.valueOf(x))&&styleValue.contains(String.valueOf(y)));
     }
 }

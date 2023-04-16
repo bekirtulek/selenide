@@ -5,6 +5,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 import static utilities.ReusableMethods.*;
 
@@ -15,6 +17,7 @@ public class CommonStepDefinitions {
     public void kullanici_adresine_gider(String url) {
 
         open(url);
+        //WebDriverRunner.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         WebDriverRunner.getWebDriver().manage().window().maximize();
 
     }
