@@ -1,17 +1,23 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import pages.TestCenterPage;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.WebDriverRunner.url;
 import static utilities.ReusableMethods.*;
 
 
 public class TestCenterStepdefs {
     TestCenterPage testCenterPage=new TestCenterPage();
+
+    // LOGIN DEFS
     @And("kullanici username girer")
     public void kullaniciUsernameGirer() {
         testCenterPage.usernameBox.setValue("techproed");
@@ -92,5 +98,31 @@ public class TestCenterStepdefs {
     @Then("kullanici sonucun {string} icerdigini test eder")
     public void kullaniciSonucunIcerdiginiTestEder(String message) {
         testCenterPage.sonuc.shouldHave(text(message));
+    }
+
+    @And("kullanici switch to ile iframe{int} icine girer")
+    public void kullaniciSwitchToIleIframeIcineGirer(int index) {
+        switchTo().frame(index-1);
+        waitSleep(3);
+    }
+
+    @And("kullanici Back to TechProEducation.com linkine tiklar")
+    public void kullaniciBackToTechProEducationComLinkineTiklar() {
+        testCenterPage.techProLink.click();
+        //System.out.println("Sayfa url'i"+ WebDriverRunner.url()); // driver hala test page de
+        System.out.println("Sayfa url'i"+url()); //driver hala test pagede
+
+    }
+
+    @And("kullanici switch to window{int} yapar")
+    public void kullaniciSwitchToWindowYapar(int index) {
+        switchTo().window(index-1, Duration.ofSeconds(5));//duration zorunlu degil
+        System.out.println("yeni pencereye gecis yapildi");
+        System.out.println("yeni sayfa url"+url());
+    }
+
+    @And("kullanici cikan reklami kapatir")
+    public void kullaniciCikanReklamiKapatir() {
+        testCenterPage.reklamClose.click();
     }
 }

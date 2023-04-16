@@ -30,6 +30,11 @@ public class TestCenterPage {
     public SelenideElement promptButton=$(By.xpath("//button[normalize-space()='Click for JS Prompt']"));
     public SelenideElement sonuc=$("#result");
 
+    //FRAME ELEMENTLERI
+    public SelenideElement techProLink=$(By.xpath("//a[@type='button']"));
+    public SelenideElement reklamClose=$(By.xpath("//i[@class='eicon-close']"));
+
+
 
 
 
