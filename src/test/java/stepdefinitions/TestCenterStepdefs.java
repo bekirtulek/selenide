@@ -35,7 +35,7 @@ public class TestCenterStepdefs {
         //fail ederse ekran goruntusu otomatik alinir ve build icine kayder
 
     }
-
+    //  CHECKBOX AND RADIO BUTTON DEFS
     @And("kullanici {string} secili degilse secer")
     public void kullaniciSeciliDegilseSecer(String text) {
         if (text.equals("Checkbox 1")&&!testCenterPage.checkbox1.isSelected()){

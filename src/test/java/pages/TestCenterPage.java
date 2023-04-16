@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TestCenterPage {
 
+    //  LOGIN ELEMENTLERI
     public SelenideElement usernameBox=$(By.id("exampleInputEmail1"));
     public SelenideElement passwordBox=$("#exampleInputPassword1");
     public SelenideElement submitButton=$(By.xpath("//button[@type='submit']"));
