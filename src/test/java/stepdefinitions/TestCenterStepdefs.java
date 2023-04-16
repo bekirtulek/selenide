@@ -1,15 +1,19 @@
 package stepdefinitions;
 
 
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.TestCenterPage;
 import java.time.Duration;
+import java.util.Date;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
 
 
@@ -149,6 +153,33 @@ public class TestCenterStepdefs {
     public void kullaniciSourceElementiniXYKoordinatlarinaSuruklendiginiDogrular(int x, int y) {
         String styleValue=testCenterPage.kaynak.getAttribute("style");
         System.out.println("styleValue = " + styleValue);
-        Assert.assertTrue(styleValue.contains(String.valueOf(x))&&styleValue.contains(String.valueOf(y)));
+        assertTrue(styleValue.contains(String.valueOf(x))&&styleValue.contains(String.valueOf(y)));
+    }
+    //EXPCILITLY WAIT DEFS
+    @And("kullanici start butonuna tiklar")
+    public void kullaniciStartButonunaTiklar() {
+        testCenterPage.startButton.click();
+    }
+
+    @Then("kullanici {string} yazisini gorur")
+    public void kullaniciYazisiniGorur(String str) {
+        //  assertEquals(testCenterPage.helloWorld.getText(),text); //FAIL WAIT PROBLEMI
+
+    //  1. Web driver Wait
+        //WebDriverWait wait=new WebDriverWait(WebDriverRunner.getWebDriver(),Duration.ofSeconds(10));
+        //wait.until(ExpectedConditions.visibilityOf(testCenterPage.helloWorld));
+
+    //  2. Selenide Wait
+    //testCenterPage.helloWorld.shouldBe(visible,Duration.ofSeconds(10));
+        testCenterPage.helloWorld.shouldHave(text(str),Duration.ofSeconds(10));
+
+
+
+    }
+
+    @And("elementin goruntusunu alir")
+    public void elementinGoruntusunuAlir() {
+
+        testCenterPage.googleImage.screenshot();
     }
 }

@@ -38,6 +38,16 @@ public class TestCenterPage {
     public SelenideElement kaynak =$("#draggable");
     public SelenideElement hedef=$("#droppable");
 
+    //EXPCILITLY WAIT ELEMENTLERI
+    public SelenideElement startButton=$(By.xpath("//button[normalize-space()='Start']"));
+    public SelenideElement helloWorld=$("#finish");
+
+    //SCREENSHOT ELEMENTLERI
+    public SelenideElement googleImage=$(".lnXdpd");
+
+
+
+
 
 
 

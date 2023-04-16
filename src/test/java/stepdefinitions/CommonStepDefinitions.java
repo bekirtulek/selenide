@@ -5,7 +5,9 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.*;
 import static utilities.ReusableMethods.*;
@@ -52,5 +54,13 @@ public class CommonStepDefinitions {
         //Configuration.holdBrowserOpen=false;
         Configuration.holdBrowserOpen=true;
 
+    }
+
+    @And("tum ekran goruntusunu alir")
+    public void tumEkranGoruntusunuAlir() {
+        String time = new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss").format(new Date());
+        //String time = new SimpleDateFormat("HH.mm.ss").format(new Date());
+        screenshot("ekrangoruntusu " + time);
+        //screenshot("image");//ekran goruntusune dinamik isim verildi
     }
 }
