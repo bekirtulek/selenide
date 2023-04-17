@@ -155,6 +155,7 @@ public class TestCenterStepdefs {
         System.out.println("styleValue = " + styleValue);
         assertTrue(styleValue.contains(String.valueOf(x))&&styleValue.contains(String.valueOf(y)));
     }
+
     //EXPCILITLY WAIT DEFS
     @And("kullanici start butonuna tiklar")
     public void kullaniciStartButonunaTiklar() {
@@ -172,6 +173,7 @@ public class TestCenterStepdefs {
     //  2. Selenide Wait
     //testCenterPage.helloWorld.shouldBe(visible,Duration.ofSeconds(10));
         testCenterPage.helloWorld.shouldHave(text(str),Duration.ofSeconds(10));
+        assertEquals(str,testCenterPage.helloWorld.getText());
 
 
 
