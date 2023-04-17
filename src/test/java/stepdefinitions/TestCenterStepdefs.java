@@ -1,17 +1,12 @@
 package stepdefinitions;
 
 
-import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.TestCenterPage;
 import java.time.Duration;
-import java.util.Date;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.actions;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -183,5 +178,12 @@ public class TestCenterStepdefs {
     public void elementinGoruntusunuAlir() {
 
         testCenterPage.googleImage.screenshot();
+    }
+
+    @And("footer elementi gorunur sekilde goster")
+    public void footerElementiGorunurSekildeGoster() {
+        //testCenterPage.amazonFooter
+        //executeJavaScript("arguments[0].scrollIntoView(true);",testCenterPage.amazonFooter);
+        scrollWithJSexecutor(testCenterPage.amazonFooter);
     }
 }

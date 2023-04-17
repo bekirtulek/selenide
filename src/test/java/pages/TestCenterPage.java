@@ -45,6 +45,9 @@ public class TestCenterPage {
     //SCREENSHOT ELEMENTLERI
     public SelenideElement googleImage=$(".lnXdpd");
 
+    //JS EXECUTOR
+    public SelenideElement amazonFooter=$(".navFooterMoreOnAmazon");
+
 
 
 
